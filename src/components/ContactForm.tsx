@@ -6,15 +6,44 @@ import { useState } from "react";
 const MUSIC_STYLES = ["Sertanejo", "Pop/Rock", "Samba/Pagode", "MPB", "Gospel/Louvores", "Diversas", "Deejay DJ"];
 const EVENT_TYPES = ["Evento Corporativo", "Casamento", "Aniversário", "Outros"];
 
+// Número do WhatsApp que recebe os pedidos de orçamento (mesmo número do botão flutuante)
+const WHATSAPP_NUMBER = "5531991891820";
+
+function formatDateBR(value: string) {
+  if (!value) return "Não informada";
+  const [year, month, day] = value.split("-");
+  return `${day}/${month}/${year}`;
+}
+
 export default function ContactForm({ variant = "hero" }: { variant?: "hero" | "footer" }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    // TODO: plugar em um backend de verdade (ex: rota /api/contato ou serviço de e-mail)
-    setTimeout(() => router.push("/obrigado"), 400);
+
+    const data = new FormData(e.currentTarget);
+    const nome = String(data.get("nome") || "").trim();
+    const telefone = String(data.get("telefone") || "").trim();
+    const estilo = String(data.get("estilo") || "");
+    const tipoEvento = String(data.get("tipo_evento") || "");
+    const dataEvento = formatDateBR(String(data.get("data_evento") || ""));
+    const convidados = String(data.get("convidados") || "").trim() || "Não informado";
+
+    const mensagem =
+      `Olá! Gostaria de solicitar um orçamento para meu evento:\n\n` +
+      `*Nome:* ${nome}\n` +
+      `*Telefone/WhatsApp:* ${telefone}\n` +
+      `*Estilo musical desejado:* ${estilo}\n` +
+      `*Tipo de evento:* ${tipoEvento}\n` +
+      `*Data do evento:* ${dataEvento}\n` +
+      `*Número de convidados:* ${convidados}`;
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setTimeout(() => router.push("/obrigado"), 300);
   }
 
   const idPrefix = variant;
