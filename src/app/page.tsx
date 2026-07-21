@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleReviews from "@/components/GoogleReviews";
+import InstagramFeed from "@/components/InstagramFeed";
 import ClientsMarquee from "@/components/ClientsMarquee";
 import VideoMarquee from "@/components/VideoMarquee";
 import { EVENT_TYPES, GALLERY_IMAGES, PRESENTATION_VIDEO_ID, SERVICES, WHATSAPP_URL } from "@/lib/data";
@@ -305,8 +306,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BAR/RESTAURANT CTA + LOGOS MARQUEE */}
+      {/* INSTAGRAM FEED */}
       <section className="section-pad bg-surface">
+        <div className="container-max">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Siga o Viva Acústicos no Instagram</h2>
+            <p className="mt-4 text-[16px] text-white/80">
+              Acompanhe bastidores, shows e novidades direto do nosso perfil.
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <InstagramFeed />
+          </div>
+        </div>
+      </section>
+
+      {/* BAR/RESTAURANT CTA + LOGOS MARQUEE */}
+      <section className="section-pad bg-page">
         <div className="container-max text-center">
           <h2 className="mx-auto text-[24px] font-bold leading-tight text-white sm:text-[30px] lg:text-[34px]">
             Deixe a Agenda de Shows do seu Bar ou
@@ -324,7 +341,7 @@ export default function Home() {
       </section>
 
       {/* BUDGET FORM */}
-      <section className="section-pad bg-page">
+      <section className="section-pad bg-surface">
         <div className="container-max grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
@@ -353,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="perguntas-frequentes" className="section-pad bg-surface">
+      <section id="perguntas-frequentes" className="section-pad bg-page">
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Perguntas Frequentes</h2>
