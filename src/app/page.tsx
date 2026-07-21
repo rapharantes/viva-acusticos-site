@@ -8,9 +8,59 @@ import Testimonials from "@/components/Testimonials";
 import ClientsMarquee from "@/components/ClientsMarquee";
 import { EVENT_TYPES, GALLERY_IMAGES, SERVICES, WHATSAPP_URL } from "@/lib/data";
 
+const FAQS = [
+  {
+    question: "Quais estilos musicais o Viva Acústicos toca?",
+    answer:
+      "Trabalhamos com um repertório versátil que vai de MPB, Sertanejo, Pop/Rock, Samba e Pagode a Gospel/Louvores, músicas nacionais e internacionais. Também oferecemos serviço de DJ (Deejay) para quem prefere um repertório mais eletrônico.",
+  },
+  {
+    question: "Quais formatos de apresentação estão disponíveis?",
+    answer:
+      "Do simples voz e violão ao duo, trio ou banda completa — o formato é escolhido de acordo com o porte e o estilo do seu evento, sempre com apresentação 100% ao vivo.",
+  },
+  {
+    question: "O Viva Acústicos atende casamentos, formaturas e eventos corporativos?",
+    answer:
+      "Sim. Atendemos casamentos, formaturas, aniversários, eventos corporativos e também mantemos agenda fixa de shows para bares e restaurantes em parceria com a LK Produções.",
+  },
+  {
+    question: "Além dos músicos, vocês fornecem som e iluminação para o evento?",
+    answer:
+      "Sim, oferecemos infraestrutura completa: palco, sonorização profissional, iluminação, painéis de LED e equipe técnica para cuidar de cada detalhe do seu evento.",
+  },
+  {
+    question: "Como faço para solicitar um orçamento?",
+    answer:
+      "Basta preencher o formulário no site com os dados do seu evento ou chamar diretamente no WhatsApp. Nosso time retorna rapidamente com uma proposta personalizada e sem compromisso.",
+  },
+  {
+    question: "Vocês atendem em Belo Horizonte e região?",
+    answer:
+      "Sim, atendemos Belo Horizonte e toda a região metropolitana, levando música ao vivo, som e iluminação para eventos particulares e corporativos.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.answer,
+    },
+  })),
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <CookieBanner />
 
       {/* HERO */}
@@ -183,7 +233,12 @@ export default function Home() {
         <div id="galeria" className="container-max mt-16 grid grid-cols-2 gap-4 md:grid-cols-5">
           {GALLERY_IMAGES.map((src, i) => (
             <div key={src} className={`relative aspect-square overflow-hidden rounded-lg ${i === 0 ? "col-span-2 row-span-2 aspect-auto" : ""}`}>
-              <Image src={src} alt="Galeria Viva Acústicos" fill className="object-cover transition-transform hover:scale-105" />
+              <Image
+                src={src}
+                alt={`Foto ${i + 1} de evento com música ao vivo realizado pelo Viva Acústicos`}
+                fill
+                className="object-cover transition-transform hover:scale-105"
+              />
             </div>
           ))}
         </div>
@@ -261,6 +316,35 @@ export default function Home() {
           </div>
 
           <ContactForm variant="footer" />
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="perguntas-frequentes" className="section-pad bg-page">
+        <div className="container-max">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Perguntas Frequentes</h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/80">
+              Tire suas dúvidas sobre música ao vivo, som e iluminação para o seu evento.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 max-w-3xl space-y-4">
+            {FAQS.map((faq) => (
+              <details
+                key={faq.question}
+                className="group rounded-md bg-surface p-6 open:bg-surface"
+              >
+                <summary className="cursor-pointer list-none text-[17px] font-bold text-white marker:content-none">
+                  <span className="flex items-center justify-between gap-4">
+                    {faq.question}
+                    <span className="shrink-0 text-accent transition-transform group-open:rotate-45">+</span>
+                  </span>
+                </summary>
+                <p className="mt-4 text-[15px] leading-relaxed text-white/80">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

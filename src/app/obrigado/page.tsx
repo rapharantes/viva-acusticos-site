@@ -3,7 +3,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Obrigado | Viva Acústicos",
+  title: "Obrigado pelo Contato",
+  description: "Recebemos sua solicitação de orçamento. Em breve o time do Viva Acústicos entrará em contato.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PaginaDeObrigado() {

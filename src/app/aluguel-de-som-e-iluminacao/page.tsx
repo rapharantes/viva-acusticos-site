@@ -7,10 +7,31 @@ import ClientsMarquee from "@/components/ClientsMarquee";
 import { WHATSAPP_URL } from "@/lib/data";
 import type { Metadata } from "next";
 
+const PAGE_URL = "https://www.vivaacusticos.com.br/aluguel-de-som-e-iluminacao";
+
 export const metadata: Metadata = {
-  title: "Aluguel de Som e Iluminação | Viva Acústicos",
+  title: "Aluguel de Som e Iluminação para Eventos",
   description:
-    "Infraestrutura completa para seu evento: palco, som e iluminação profissional. Encontre tudo aqui!",
+    "Aluguel de palco, som e iluminação profissional para eventos: sonorização de alta fidelidade, iluminação cênica, painéis de LED e pistas iluminadas. Estrutura completa com equipe técnica especializada em Belo Horizonte e região. Solicite uma cotação.",
+  alternates: {
+    canonical: "/aluguel-de-som-e-iluminacao",
+  },
+  openGraph: {
+    title: "Aluguel de Som e Iluminação para Eventos | Viva Acústicos",
+    description:
+      "Palco, sonorização, iluminação profissional e painéis de LED para eventos particulares e corporativos.",
+    url: PAGE_URL,
+    images: [{ url: "/images/marca/og-image.jpg", width: 1200, height: 630 }],
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Início", item: "https://www.vivaacusticos.com.br/" },
+    { "@type": "ListItem", position: 2, name: "Aluguel de Som e Iluminação", item: PAGE_URL },
+  ],
 };
 
 const STRUCTURES = [
@@ -45,6 +66,10 @@ const GALLERY = [
 export default function AluguelSomEIluminacao() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-page">
         <Navbar />
         <Image
@@ -100,9 +125,14 @@ export default function AluguelSomEIluminacao() {
           </div>
 
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-5">
-            {GALLERY.map((src) => (
+            {GALLERY.map((src, i) => (
               <div key={src} className="relative aspect-square overflow-hidden rounded-lg">
-                <Image src={src} alt="Estrutura de evento Viva Acústicos" fill className="object-cover transition-transform hover:scale-105" />
+                <Image
+                  src={src}
+                  alt={`Estrutura de palco, som e iluminação montada pelo Viva Acústicos - foto ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform hover:scale-105"
+                />
               </div>
             ))}
           </div>
