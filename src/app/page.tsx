@@ -257,7 +257,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="galeria" className="container-max mt-16 grid grid-cols-2 gap-4 md:grid-cols-5">
+        <div id="galeria" className="container-max mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
           {GALLERY_IMAGES.map((src, i) => (
             <div key={src} className={`relative aspect-square overflow-hidden rounded-lg ${i === 0 ? "col-span-2 row-span-2 aspect-auto" : ""}`}>
               <Image
