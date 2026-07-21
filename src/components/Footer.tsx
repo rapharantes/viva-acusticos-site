@@ -30,8 +30,9 @@ export default function Footer() {
             alt="LK Produções"
             width={160}
             height={48}
-            className="mb-4 h-10 w-auto"
+            className="mb-2 h-20 w-auto md:h-24"
           />
+          <p className="text-[14px] text-white/70">Parceiro Viva Acústicos</p>
         </div>
 
         <div>
