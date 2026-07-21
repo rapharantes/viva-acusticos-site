@@ -145,6 +145,35 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        {/*
+          Algumas extensões de navegador (bloqueadores de anúncio, cupons, tradutores etc.)
+          inserem ou removem elementos do DOM por fora do controle do React. Isso pode fazer
+          o React lançar "NotFoundError: Failed to execute 'removeChild'/'insertBefore'" durante
+          a navegação entre páginas, quebrando a troca de rota para quem tem essas extensões
+          instaladas. Este patch torna removeChild/insertBefore tolerantes a esse cenário,
+          evitando que a navegação quebre por causa de um script de terceiros.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){
+  if (typeof Node !== "function" || !Node.prototype) return;
+  var origRemoveChild = Node.prototype.removeChild;
+  Node.prototype.removeChild = function(child) {
+    if (child && child.parentNode !== this) {
+      return child;
+    }
+    return origRemoveChild.apply(this, arguments);
+  };
+  var origInsertBefore = Node.prototype.insertBefore;
+  Node.prototype.insertBefore = function(newNode, referenceNode) {
+    if (referenceNode && referenceNode.parentNode !== this) {
+      return newNode;
+    }
+    return origInsertBefore.apply(this, arguments);
+  };
+})();`,
+          }}
+        />
       </head>
       {/* suppressHydrationWarning: extensões de navegador (ex.: ColorZilla) injetam atributos no body antes do React hidratar */}
       <body suppressHydrationWarning>
