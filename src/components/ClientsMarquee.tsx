@@ -8,7 +8,7 @@ export default function ClientsMarquee() {
       <div className="marquee-track items-center">
         {doubled.map((logo, i) => (
           <div key={`${logo.name}-${i}`} className="flex h-[18rem] w-[26rem] shrink-0 items-center justify-center opacity-80 grayscale transition-opacity hover:opacity-100 hover:grayscale-0">
-            <Image src={logo.src} alt={logo.name} width={416} height={416} className="max-h-64 w-auto object-contain" />
+            <Image src={logo.src} alt={logo.name} width={416} height={416} unoptimized className="h-64 w-64 object-contain" />
           </div>
         ))}
       </div>
