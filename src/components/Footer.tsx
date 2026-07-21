@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="container-max grid gap-10 py-16 md:grid-cols-4">
         <div>
           <Image
-            src="/images/2025/07/logo_viva_acusticos_rodape.webp"
+            src="/images/marca/logo-horizontal-com-slogan.png"
             alt="Viva Acústicos"
-            width={160}
-            height={48}
-            className="mb-4 h-10 w-auto"
+            width={811}
+            height={221}
+            className="mb-4 h-16 w-auto md:h-20"
           />
           <div className="flex gap-3">
             <a href={CONTACTS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">

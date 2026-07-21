@@ -17,7 +17,7 @@ export default function Navbar() {
             alt="Viva Acústicos"
             width={811}
             height={221}
-            className="h-12 w-auto md:h-14"
+            className="h-14 w-auto md:h-20"
             priority
           />
         </Link>
