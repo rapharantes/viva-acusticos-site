@@ -128,3 +128,7 @@ body {
   gap: 40px;
   animation-duration: 170s;
 }
+
+.marquee-track--partners {
+  gap: 20px;
+}
