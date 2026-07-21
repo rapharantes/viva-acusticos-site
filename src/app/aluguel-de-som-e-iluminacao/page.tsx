@@ -2,7 +2,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import Testimonials from "@/components/Testimonials";
+import GoogleReviews from "@/components/GoogleReviews";
 import ClientsMarquee from "@/components/ClientsMarquee";
 import { WHATSAPP_URL } from "@/lib/data";
 import type { Metadata } from "next";
@@ -195,7 +195,7 @@ export default function AluguelSomEIluminacao() {
             </p>
           </div>
           <div className="mt-12">
-            <Testimonials />
+            <GoogleReviews />
           </div>
         </div>
       </section>

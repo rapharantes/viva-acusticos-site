@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import CookieBanner from "@/components/CookieBanner";
-import Testimonials from "@/components/Testimonials";
+import GoogleReviews from "@/components/GoogleReviews";
 import ClientsMarquee from "@/components/ClientsMarquee";
 import VideoMarquee from "@/components/VideoMarquee";
 import { EVENT_TYPES, GALLERY_IMAGES, PRESENTATION_VIDEO_ID, SERVICES, WHATSAPP_URL } from "@/lib/data";
@@ -300,19 +300,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12">
-            <Testimonials />
-          </div>
-
-          <div className="mt-16 text-center">
-            <h3 className="text-[24px] font-bold text-white">Veja todas as avaliações no Google</h3>
-            <a
-              href="https://share.google/KR9T9Dlowz61L58yU"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center rounded-[50px] border border-gold px-10 py-[18px] text-[16px] font-bold text-white transition-colors hover:bg-gold hover:text-darkest"
-            >
-              VEJA NOSSAS AVALIAÇÕES NO GOOGLE
-            </a>
+            <GoogleReviews />
           </div>
         </div>
       </section>
