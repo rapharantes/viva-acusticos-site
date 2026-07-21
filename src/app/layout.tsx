@@ -159,17 +159,21 @@ export default function RootLayout({
   if (typeof Node !== "function" || !Node.prototype) return;
   var origRemoveChild = Node.prototype.removeChild;
   Node.prototype.removeChild = function(child) {
-    if (child && child.parentNode !== this) {
-      return child;
+    try {
+      return origRemoveChild.call(this, child);
+    } catch (e) {
+      if (e && e.name === "NotFoundError") return child;
+      throw e;
     }
-    return origRemoveChild.apply(this, arguments);
   };
   var origInsertBefore = Node.prototype.insertBefore;
   Node.prototype.insertBefore = function(newNode, referenceNode) {
-    if (referenceNode && referenceNode.parentNode !== this) {
-      return newNode;
+    try {
+      return origInsertBefore.call(this, newNode, referenceNode);
+    } catch (e) {
+      if (e && e.name === "NotFoundError") return this.appendChild(newNode);
+      throw e;
     }
-    return origInsertBefore.apply(this, arguments);
   };
 })();`,
           }}
