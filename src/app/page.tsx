@@ -6,7 +6,8 @@ import ContactForm from "@/components/ContactForm";
 import CookieBanner from "@/components/CookieBanner";
 import Testimonials from "@/components/Testimonials";
 import ClientsMarquee from "@/components/ClientsMarquee";
-import { EVENT_TYPES, GALLERY_IMAGES, SERVICES, WHATSAPP_URL } from "@/lib/data";
+import VideoMarquee from "@/components/VideoMarquee";
+import { EVENT_TYPES, GALLERY_IMAGES, PRESENTATION_VIDEO_ID, SERVICES, WHATSAPP_URL } from "@/lib/data";
 
 const FAQS = [
   {
@@ -159,6 +160,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PRESENTATION VIDEO */}
+      <section className="section-pad bg-darkest">
+        <div className="container-max">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+              Conheça o <span className="txt-lkgold">Viva Acústicos</span>
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/80">
+              Assista ao nosso vídeo de apresentação e veja de perto a energia e a qualidade que
+              levamos para cada evento.
+            </p>
+          </div>
+          <div className="mx-auto mt-12 aspect-video max-w-4xl overflow-hidden rounded-xl shadow-xl">
+            <iframe
+              src={`https://www.youtube.com/embed/${PRESENTATION_VIDEO_ID}`}
+              title="Vídeo de apresentação - Viva Acústicos"
+              className="h-full w-full"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section id="servicos" className="section-pad bg-surface">
         <div className="container-max">
@@ -244,8 +270,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* VIDEO MARQUEE - SHOWS */}
+      <section className="section-pad bg-surface">
+        <div className="container-max">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+              Assista a alguns dos nossos shows
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/80">
+              Uma amostra do nosso repertório ao vivo, direto do canal do Viva Acústicos no
+              YouTube.
+            </p>
+          </div>
+        </div>
+        <div className="mt-12">
+          <VideoMarquee />
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
-      <section id="clientes" className="section-pad bg-surface">
+      <section id="clientes" className="section-pad bg-page">
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Alguns de nossos clientes</h2>
@@ -274,7 +318,7 @@ export default function Home() {
       </section>
 
       {/* BAR/RESTAURANT CTA + LOGOS MARQUEE */}
-      <section className="section-pad bg-page">
+      <section className="section-pad bg-surface">
         <div className="container-max text-center">
           <h2 className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-white sm:text-[36px]">
             Deixe a Agenda de Shows do seu Bar ou Restaurantes por conta do Viva Acústicos e LK
@@ -291,7 +335,7 @@ export default function Home() {
       </section>
 
       {/* BUDGET FORM */}
-      <section className="section-pad bg-surface">
+      <section className="section-pad bg-page">
         <div className="container-max grid items-center gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
@@ -320,7 +364,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="perguntas-frequentes" className="section-pad bg-page">
+      <section id="perguntas-frequentes" className="section-pad bg-surface">
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Perguntas Frequentes</h2>

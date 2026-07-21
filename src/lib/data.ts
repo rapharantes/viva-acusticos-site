@@ -82,6 +82,36 @@ export const GALLERY_IMAGES = [
   "/images/2025/07/image_grid_05.webp",
 ];
 
+export const PRESENTATION_VIDEO_ID = "iUmzEfxY1nU";
+
+export const SHOW_VIDEOS = [
+  { id: "A136eNlJjQI", title: "Morena Tropicana" },
+  { id: "QiWXo403jS4", title: "Xote dos Milagres" },
+  { id: "IbC70hYLYug", title: "Esperando na Janela e Chuva" },
+  { id: "pVXcykn5lyk", title: "Maus Bocados" },
+  { id: "tShnVGNuVjc", title: "Cê Que Sabe" },
+  { id: "1o-pZtkZCfE", title: "Notificação Preferida" },
+  { id: "BsUa0dVlJ8s", title: "Boate Azul" },
+  { id: "j0q-QPpM0jE", title: "Página de Amigos" },
+  { id: "q-RopTI7UGs", title: "Entrada de Noivos" },
+  { id: "mwgn4_LjgTI", title: "Evidências" },
+  { id: "B1VcrsIBSLM", title: "Pense em Mim e Alô" },
+  { id: "gaU8V_xoRYs", title: "Esqueça-me se for Capaz" },
+  { id: "WTujA2C4Zfo", title: "Já Sei de Cor" },
+  { id: "ZsXUJfSkIlY", title: "Voa Beija-Flor" },
+  { id: "BiNlxwVBtl4", title: "Parece Castigo" },
+  { id: "P8FhiJZPC9A", title: "Coração na Cama" },
+  { id: "0pjXcEp7hdc", title: "Briga Feia" },
+  { id: "Jr37lL1xzIs", title: "Cilada e Cheia de Manias" },
+  { id: "2th7d9eSbgA", title: "Mineirinho" },
+  { id: "nVfDeYOax0o", title: "Areketu Axé" },
+  { id: "BHoWPH-I9nQ", title: "Axé Dança do Vampiro" },
+  { id: "EkIxs24VAH4", title: "Vira Vira" },
+  { id: "Cg8pZSLcAZI", title: "Dança com os Noivos" },
+  { id: "Je8E7GHTAW8", title: "Brincadeira da Tomada" },
+  { id: "m_bsUxLzRlE", title: "Pequena Eva" },
+];
+
 export const CONTACTS = {
   phone1: "(31)99189-1820",
   phone2: "(31)99276-2778",
