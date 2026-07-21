@@ -273,8 +273,8 @@ export default function Home() {
       {/* VIDEO MARQUEE - SHOWS */}
       <section className="section-pad bg-surface">
         <div className="container-max">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="whitespace-nowrap text-[26px] font-bold text-white sm:text-[32px] lg:text-[42px]">
               Assista a alguns dos nossos shows
             </h2>
             <p className="mt-4 text-[16px] leading-relaxed text-white/80">

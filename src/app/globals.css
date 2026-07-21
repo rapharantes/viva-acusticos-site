@@ -125,6 +125,6 @@ body {
 }
 
 .marquee-track--videos {
-  gap: 32px;
-  animation-duration: 130s;
+  gap: 40px;
+  animation-duration: 170s;
 }
