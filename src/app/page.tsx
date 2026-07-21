@@ -1,0 +1,295 @@
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
+import CookieBanner from "@/components/CookieBanner";
+import Testimonials from "@/components/Testimonials";
+import ClientsMarquee from "@/components/ClientsMarquee";
+import { EVENT_TYPES, GALLERY_IMAGES, SERVICES, WHATSAPP_URL } from "@/lib/data";
+
+export default function Home() {
+  return (
+    <>
+      <CookieBanner />
+
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-page">
+        <Navbar />
+        <Image
+          src="/images/2025/07/banner.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+
+        <div className="container-max relative grid gap-10 pt-40 pb-20 lg:grid-cols-2 lg:pt-56 lg:pb-28">
+          <div>
+            <h1 className="text-[44px] font-bold leading-[1.06] tracking-tight text-white sm:text-[60px] lg:text-[80px]">
+              Precisa de <br /> música ao vivo?
+              <br />
+              <span className="txt-lkgold">Contrate Aqui!</span>
+            </h1>
+            <p className="mt-6 max-w-lg text-[18px] leading-relaxed text-white/90">
+              Você procura música ao vivo para seu evento? Do voz e violão a banda completa, DJ
+              (Deejay), vários estilos musicais{" "}
+              <b>(MPB, Pop Rock, Sertanejo, Nacional e Internacional).</b> <b>Encontre tudo aqui!</b>
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-pill gradient-cta-green px-10 py-[18px] text-[16px] font-bold uppercase text-darkest transition-transform hover:scale-[1.03]"
+            >
+              Agende um Show!
+            </a>
+          </div>
+
+          <div id="orcamento" className="lg:justify-self-end lg:w-full lg:max-w-md">
+            <ContactForm variant="hero" />
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST STRIP */}
+      <section className="border-t border-white/5 bg-darkest">
+        <div className="container-max grid gap-6 py-8 text-[15px] text-white/85 sm:grid-cols-3">
+          <p>Banda ou músicos acústicos profissionais (duo, trio, banda completa)</p>
+          <p>Material completos para o evento: Aluguel de som, iluminação e DJ</p>
+          <p>Produção completa para casamentos, formaturas e eventos corporativos</p>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="section-pad bg-page">
+        <div className="container-max grid items-center gap-12 lg:grid-cols-2">
+          <div className="relative">
+            <Image
+              src="/images/2025/07/musico-sentado-tocando-violao.webp"
+              alt="Músico sentado tocando violão no show"
+              width={600}
+              height={700}
+              className="w-full rounded-xl object-cover shadow-xl"
+            />
+            <div className="absolute bottom-6 left-6 rounded-md bg-darkest/90 px-5 py-4 backdrop-blur-sm">
+              <p className="font-bold text-accent">Viva Acústicos</p>
+              <p className="max-w-[220px] text-[14px] text-white/80">
+                A combinação perfeita para tornar o seu evento inesquecível.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-[32px] font-bold leading-tight text-white sm:text-[42px]">
+              Por que escolher o <span className="txt-lkgold">Viva Acústicos?</span>
+            </h2>
+            <ul className="mt-8 space-y-5">
+              {[
+                "Apresentações 100% ao vivo – qualidade, emoção e autenticidade em cada nota",
+                "Formatos flexíveis – voz e violão, duo, trio ou banda para adequar ao estilo e porte do seu evento",
+                "Solução completa – Músicos, sonorização, iluminação, e DJ para seu evento!",
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-[16px] text-white/90">
+                  <CheckIcon />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-pill gradient-cta-blue px-10 py-[18px] text-[16px] font-bold uppercase text-darkest transition-transform hover:scale-[1.03]"
+            >
+              Agende um Show
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="servicos" className="section-pad bg-surface">
+        <div className="container-max">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+              Serviços completos para o seu evento
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/80">
+              Todas as apresentações vão do formato de um simples voz e violão ao duo, trio ou
+              banda completa. Dessa forma, conseguimos atender com qualidade a qualquer tipo de
+              evento, cerimônia, casamentos, aniversários e muito mais!
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {SERVICES.map((service) => (
+              <div key={service.title} className="overflow-hidden rounded-md bg-page">
+                <div className="relative h-56 w-full">
+                  <Image src={service.image} alt={service.title} fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="mb-3 text-[22px] font-bold text-white">{service.title}</h3>
+                  <p className="mb-4 text-[15px] leading-relaxed text-white/80">{service.description}</p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] font-bold text-accent hover:text-accent-hover"
+                  >
+                    Clique para falar no Whatsapp →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EVENT TYPES + GALLERY */}
+      <section id="tipos-de-eventos" className="section-pad bg-page">
+        <div className="container-max grid gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+              Estamos preparados para todos os eventos
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/80">
+              Viva Acústicos, um projeto que incorpora músicos de qualidade profissional.
+              Oferecemos apresentações diferenciadas, atrativas e executadas totalmente AO VIVO!
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-pill gradient-cta-blue px-10 py-[18px] text-[16px] font-bold uppercase text-darkest transition-transform hover:scale-[1.03]"
+            >
+              Agende um Show
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 gap-6">
+            {EVENT_TYPES.map((ev) => (
+              <div key={ev.label} className="rounded-md bg-surface p-6">
+                <Image src={ev.icon} alt="" width={32} height={32} className="mb-4 h-8 w-8" />
+                <p className="text-[16px] text-white/90">
+                  <b>{ev.label}:</b> {ev.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div id="galeria" className="container-max mt-16 grid grid-cols-2 gap-4 md:grid-cols-5">
+          {GALLERY_IMAGES.map((src, i) => (
+            <div key={src} className={`relative aspect-square overflow-hidden rounded-lg ${i === 0 ? "col-span-2 row-span-2 aspect-auto" : ""}`}>
+              <Image src={src} alt="Galeria Viva Acústicos" fill className="object-cover transition-transform hover:scale-105" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="clientes" className="section-pad bg-surface">
+        <div className="container-max">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Alguns de nossos clientes</h2>
+            <p className="mt-4 text-[16px] text-white/80">
+              Conte com uma equipe experiente que te ajudará a criar o projeto perfeito para
+              qualquer evento!
+            </p>
+          </div>
+
+          <div className="mt-12">
+            <Testimonials />
+          </div>
+
+          <div className="mt-16 text-center">
+            <h3 className="text-[24px] font-bold text-white">Veja todas as avaliações no Google</h3>
+            <a
+              href="https://share.google/KR9T9Dlowz61L58yU"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center rounded-[50px] border border-gold px-10 py-[18px] text-[16px] font-bold text-white transition-colors hover:bg-gold hover:text-darkest"
+            >
+              VEJA NOSSAS AVALIAÇÕES NO GOOGLE
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* BAR/RESTAURANT CTA + LOGOS MARQUEE */}
+      <section className="section-pad bg-page">
+        <div className="container-max text-center">
+          <h2 className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-white sm:text-[36px]">
+            Deixe a Agenda de Shows do seu Bar ou Restaurantes por conta do Viva Acústicos e LK
+            Produções!
+          </h2>
+          <p className="mt-4 text-[16px] text-white/80">
+            Para você que é dono de Bar ou Restaurante nossa equipe pode cuidar da sua agenda de
+            Eventos!
+          </p>
+        </div>
+        <div className="mt-12">
+          <ClientsMarquee />
+        </div>
+      </section>
+
+      {/* BUDGET FORM */}
+      <section className="section-pad bg-surface">
+        <div className="container-max grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+              Solicite seu orçamento personalizado
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-white/80">
+              Viva Acústicos: a combinação perfeita para tornar seu evento memorável. Faça do seu
+              evento uma experiência única com som, luz e emoção!
+            </p>
+            <ul className="mt-8 space-y-4">
+              {[
+                "Proposta completa e sem compromisso",
+                "Planejamento ajustado ao seu estilo e público",
+                "Retorno rápido — nosso time entrará em contato em breve",
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-[16px] text-white/90">
+                  <CheckIcon />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <ContactForm variant="footer" />
+        </div>
+      </section>
+
+      {/* MUSICIAN CTA */}
+      <section className="bg-darkest py-14 text-center">
+        <div className="container-max">
+          <h2 className="text-[24px] font-bold text-white sm:text-[28px]">
+            Ei músico! Entre em contato e faça parte da nossa equipe
+          </h2>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center justify-center rounded-pill gradient-cta-green px-10 py-[18px] text-[16px] font-bold uppercase text-darkest transition-transform hover:scale-[1.03]"
+          >
+            Fale agora pelo WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0 fill-accent">
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.4-4.2-4.2 1.4-1.4 2.8 2.8 6-6 1.4 1.4-7.4 7.4Z" />
+    </svg>
+  );
+}

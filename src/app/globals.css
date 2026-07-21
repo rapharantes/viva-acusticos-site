@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "AlbertSans";
+  src: url("/fonts/AlbertSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AlbertSans";
+  src: url("/fonts/AlbertSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AlbertSans";
+  src: url("/fonts/AlbertSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "AlbertSans", sans-serif;
+
+  --color-page: #282828;
+  --color-surface: #323232;
+  --color-darkest: #1e1e1e;
+  --color-accent: #ef7f01;
+  --color-accent-hover: #ffad2c;
+  --color-accent-link: #f08400;
+  --color-gold: #fecb00;
+  --color-brandblue: #154172;
+  --color-whatsapp: #25d366;
+  --color-success: #22cc60;
+  --color-info: #01afff;
+  --color-neutral-900: #212121;
+  --color-neutral-600: #5a5a5a;
+  --color-neutral-500: #69727d;
+  --color-neutral-100: #f4f4f4;
+
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 18px;
+  --radius-lg: 22px;
+  --radius-xl: 25px;
+  --radius-pill: 40px;
+
+  --shadow-xl: 0 32px 68px 0 rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 11px 0 rgba(0, 0, 0, 0.5);
+
+  --breakpoint-xs: 425px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1025px;
+  --breakpoint-xl: 1367px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-page);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-cta-blue {
+  background: linear-gradient(265deg, #00f0ff 7.06%, #00afff 88.92%);
+}
+.gradient-cta-green {
+  background: linear-gradient(266deg, #1ccf1c -2.16%, #18aa2e 100.84%);
+}
+.gradient-gold {
+  background: linear-gradient(180deg, #fecb00 0%, #ef7f01 100%);
+}
+
+.txt-lkgold {
+  background: linear-gradient(180deg, #fecb00 0%, #ef7f01 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.container-max {
+  max-width: 1264px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-pad {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+@media (max-width: 1024px) {
+  .section-pad {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
