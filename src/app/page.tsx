@@ -189,8 +189,8 @@ export default function Home() {
       {/* SERVICES */}
       <section id="servicos" className="section-pad bg-surface">
         <div className="container-max">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="whitespace-nowrap text-[24px] font-bold text-white sm:text-[32px] lg:text-[42px]">
               Serviços completos para o seu evento
             </h2>
             <p className="mt-4 text-[16px] leading-relaxed text-white/80">
