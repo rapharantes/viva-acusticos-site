@@ -13,11 +13,11 @@ export default function Navbar() {
       <div className="container-max flex items-center justify-between gap-6 py-6">
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
-            src="/images/2026/01/Viva-Acusticos-Logo.png"
+            src="/images/marca/logo-horizontal-com-slogan.png"
             alt="Viva Acústicos"
-            width={160}
-            height={48}
-            className="h-10 w-auto md:h-12"
+            width={811}
+            height={221}
+            className="h-12 w-auto md:h-14"
             priority
           />
         </Link>
