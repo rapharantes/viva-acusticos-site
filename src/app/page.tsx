@@ -309,8 +309,10 @@ export default function Home() {
       {/* INSTAGRAM FEED */}
       <section className="section-pad bg-surface">
         <div className="container-max">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-[32px] font-bold text-white sm:text-[42px]">Siga o Viva Acústicos no Instagram</h2>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="whitespace-nowrap text-[22px] font-bold text-white sm:text-[32px] lg:text-[38px]">
+              Siga o Viva Acústicos no Instagram
+            </h2>
             <p className="mt-4 text-[16px] text-white/80">
               Acompanhe bastidores, shows e novidades direto do nosso perfil.
             </p>
@@ -328,7 +330,7 @@ export default function Home() {
           <h2 className="mx-auto text-[24px] font-bold leading-tight text-white sm:text-[30px] lg:text-[34px]">
             Deixe a Agenda de Shows do seu Bar ou
             <br />
-            Restaurantes por conta do Viva Acústicos e LK Produções!
+            Restaurantes por conta do <span className="txt-lkgold">Viva Acústicos e LK Produções!</span>
           </h2>
           <p className="mt-4 text-[16px] text-white/80">
             Para você que é dono de Bar ou Restaurante nossa equipe pode cuidar da sua agenda de
