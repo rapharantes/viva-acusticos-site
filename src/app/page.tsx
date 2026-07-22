@@ -134,7 +134,7 @@ export default function Home() {
           </div>
 
           <div>
-            <h2 className="text-[32px] font-bold leading-tight text-white sm:text-[42px]">
+            <h2 className="whitespace-nowrap text-[22px] font-bold leading-tight text-white sm:text-[30px] lg:text-[38px]">
               Por que escolher o <span className="txt-lkgold">Viva Acústicos?</span>
             </h2>
             <ul className="mt-8 space-y-5">
